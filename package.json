@@ -1,0 +1,29 @@
+{
+  "name": "tiy-weeklyproject5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Garmhausen/TIY-WeeklyProject5.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Garmhausen/TIY-WeeklyProject5/issues"
+  },
+  "homepage": "https://github.com/Garmhausen/TIY-WeeklyProject5#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "express-validator": "^3.2.0",
+    "jsonfile": "^3.0.0",
+    "mustache-express": "^1.2.4",
+    "parseurl": "^1.3.1"
+  }
+}

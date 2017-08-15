@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+    <link rel="stylesheet" href="styles/master.css">
+    <title>Play Mystery Word - Winners</title>
+  </head>
+  <body>
+    <main id="winners">
+
+      <h1>
+        Winners
+      </h1>
+
+      <table class="winner-table">
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>Word</td>
+            <td>Guesses</td>
+            <td>Difficulty</td>
+          </tr>
+        </thead>
+
+        <tbody>
+          {{#display}}
+            <tr>
+              <td>
+                {{name}}
+              </td>
+              <td>
+                {{word}}
+              </td>
+              <td>
+                {{guesses}}
+              </td>
+              <td>
+                {{difficulty}}
+              </td>
+            </tr>
+          {{/display}}
+        </tbody>
+      </table>
+
+      <br />
+      <a href="/">Back</a>
+    </main>
+  </body>
+</html>

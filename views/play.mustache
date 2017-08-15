@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+    <link rel="stylesheet" href="styles/master.css">
+    <title>Play Mystery Word</title>
+  </head>
+  <body>
+    <main id="play">
+      {{#display}}
+      {{#win}}
+        <div class="play-diff">
+          <span>Difficulty</span><br />
+          <span class="difficulty">{{difficulty}}</span>
+        </div>
+        <div class="play-word">
+          {{#wordArray}}
+            <span class="word-letter">{{letter}}</span>
+            <span> </span>
+          {{/wordArray}}
+        </div>
+        <div class="play-remaining-guesses">
+          <span>
+            Remaining Guesses
+          </span>
+          <br />
+          <span class="remaining-num">
+            {{remainingGuesses}}
+          </span>
+        </div>
+        <div class="play-bad-and-current">
+          <div class="guess-title">
+            You won!
+          </div>
+          <div class="winner-wrapper">
+            <div class="allGuess-wrapper">
+              {{#guessArray}}
+                <span   class="allGuess-letter">{{.}}</span>
+              {{/guessArray}}
+            </div>
+            <br />
+            <form class="winner-form" method="post" action="/win">
+              <input type="text" name="name" placeholder="Enter your name" autofocus>
+              <input type="submit" name="submit" value="submit">
+            </form>
+            <br />
+            <span><a href="{{dictionary}}" target="_blank">Define: {{word}}</a></span>
+            <br />
+            <span> <a href="/">Return</a></span>
+          </div>
+        </div>
+      {{/win}}
+      {{/display}}
+
+
+
+      {{#display}}
+      {{#lose}}
+      <div class="play-diff">
+        <span>Difficulty</span><br />
+        <span class="difficulty">{{difficulty}}</span>
+      </div>
+      <div class="play-word">
+        {{#wordArray}}
+        {{#revealed}}
+          <span class="word-letter">{{letter}}</span>
+          <span> </span>
+        {{/revealed}}
+        {{^revealed}}
+          <span class="lose-letter">{{letter}}</span>
+          <span> </span>
+        {{/revealed}}
+        {{/wordArray}}
+      </div>
+      <div class="play-remaining-guesses">
+        <span>
+          Remaining Guesses
+        </span>
+        <br />
+        <span class="remaining-num">
+          {{remainingGuesses}}
+        </span>
+      </div>
+      <div class="play-bad-and-current">
+        <div class="guess-title">
+          You lose.
+        </div>
+        <div class="winner-wrapper">
+          <div class="allGuess-wrapper">
+            {{#guessArray}}
+              <span   class="allGuess-letter">{{.}}</span>
+            {{/guessArray}}
+          </div>
+          <br />
+          <span><a href="{{dictionary}}" target="_blank">Define: {{word}}</a></span>
+          <br />
+          <span> <a href="/">Return</a></span>
+        </div>
+      </div>
+      {{/lose}}
+      {{/display}}
+
+
+
+      {{#display}}
+      {{^win}}
+      {{^lose}}
+        <div class="play-diff">
+          <span>Difficulty</span><br />
+          <span class="difficulty">{{difficulty}}</span>
+        </div>
+        <div class="play-word">
+          {{#wordArray}}
+          {{#revealed}}
+            <span class="word-letter">{{letter}}</span>
+            <span> </span>
+          {{/revealed}}
+          {{^revealed}}
+          <span class="word-letter">_</span>
+          <span> </span>
+          {{/revealed}}
+          {{/wordArray}}
+        </div>
+        <div class="play-remaining-guesses">
+          <span>
+            Remaining Guesses
+          </span>
+          <br />
+          <span class="remaining-num">
+            {{remainingGuesses}}
+          </span>
+        </div>
+        <div class="play-bad-and-current">
+          <div class="guess-title">
+            Type a guess:
+          </div>
+          <div class="allGuess-wrapper">
+            {{#guessArray}}
+              <span class="allGuess-letter">{{.}}</span>
+            {{/guessArray}}
+            <span id="current-guess"></span>
+          </div>
+        </div>
+      {{/lose}}
+      {{/win}}
+      {{/display}}
+    </main>
+    <script src="play.js"></script>
+  </body>
+</html>
